@@ -1,0 +1,55 @@
+@import './vue-bootstrap-sidebar';
+@import './variables';
+
+.default-theme {
+
+  background: $bg-color;
+  color: $color;
+
+  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+
+  & .sidebar-header {
+      background-color: $bg-color;
+      color: $color;
+  }
+
+  .items-wrapper {
+      background-color: $bg-color;
+  }
+
+  .list-group-item {
+    padding: 0 !important;
+
+    .sidebar-menu-item {
+      background-color: $bg-color;
+      color: $color;
+      border: none;
+
+      &:hover {
+        background-color: #f7f7f7;
+      }
+
+      &:focus {
+       outline: none !important;
+       box-shadow: none;
+       background-color: #f7f7f7;
+      }
+
+    }
+  }
+
+  .sidebar-button {
+    background-color: $transparent-background;
+    color: $color;
+    border: none;
+    border-radius: 0;
+    opacity: 1;
+
+    &:hover, &:focus, &:active, &:visited {
+      color: $color;
+      border: none;
+      border-color: none;
+      box-shadow: none;
+    }
+  }
+}
