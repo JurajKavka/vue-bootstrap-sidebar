@@ -1,6 +1,6 @@
 {
   "name": "vue-bootstrap-sidebar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple sidebar component for Vue applications build using bootstrap-vue",
   "author": "Juraj Kavka <jurajkavka@gmail.com",
   "license": "MIT",
@@ -13,8 +13,8 @@
     "!src/serve-dev.*"
   ],
   "repository": {
-      "type": "git",
-      "url": "https://github.com/JurajKavka/vue-bootstrap-sidebar.git"
+    "type": "git",
+    "url": "https://github.com/JurajKavka/vue-bootstrap-sidebar.git"
   },
   "keywords": [
     "vue",
