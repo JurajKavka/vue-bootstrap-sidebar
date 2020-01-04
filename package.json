@@ -10,6 +10,7 @@
   "files": [
     "dist/*",
     "src/**/*.vue",
+    "src/**/*.scss",
     "!src/serve-dev.*"
   ],
   "repository": {
