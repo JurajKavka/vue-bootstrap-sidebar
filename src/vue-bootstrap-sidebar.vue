@@ -22,6 +22,11 @@
                 variant="info"
                 class="btn sidebar-menu-item"
               >
+                <component 
+                  v-if="link.faIcon" 
+                  :is="'font-awesome-icon'" 
+                  :icon="link.faIcon"
+                />
                 {{ link.name }}
               </b-button>
             </b-list-group-item>
@@ -37,6 +42,11 @@
                 variant="info"
                 class="sidebar-menu-item dropdown-toggle"
               >
+                <component 
+                  v-if="link.faIcon" 
+                  :is="'font-awesome-icon'" 
+                  :icon="link.faIcon"
+                />
                 {{ link.name }}
               </b-button>
             </b-list-group-item>
@@ -57,6 +67,11 @@
                     class="sidebar-menu-item child-level-1"
                     :to="child.href"
                   >
+                    <component 
+                      v-if="child.faIcon" 
+                      :is="'font-awesome-icon'" 
+                      :icon="link.faIcon"
+                    />
                     {{ child.name }}
                   </b-button>
                 </b-list-group-item>
@@ -120,6 +135,7 @@ export default {
       this.show = !this.show
       this.$emit('sidebarChanged', this.show)
     }
+
   }
 }
 </script>

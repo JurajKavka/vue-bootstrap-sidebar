@@ -15,14 +15,14 @@ export default Vue.extend({
       show: false,
       header: '<h3>Sidebar</h3>',
       links: [
-        { name: 'Link 1',
+        { name: 'Link 1', faIcon: 'user-secret',
           children: [
             { name: 'Link Child 1', href: '#' },
             { name: 'Link Child 2', href: '#' }
           ]
         },
-        { name: 'Home', href: '#' },
-        { name: 'About', href: '#' },
+        { name: 'Home', href: '#', faIcon: ['fas', 'user-secret'] },
+        { name: 'About', href: '#', faIcon: 'user-secret' },
         { name: 'Link 2',
           children: [
             { name: 'Link Child 1', href: '#' },
@@ -46,6 +46,7 @@ export default Vue.extend({
       :show="true" 
       :links="links"
       :header="header"
+      :fa="true"
       @sidebarChanged="onSidebarChanged"
     >
       <template v-slot:navbar>
