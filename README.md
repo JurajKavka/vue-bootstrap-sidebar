@@ -16,6 +16,7 @@ npm run serve
 ```
 ## Installation & integration to Vue app
 > **NOTE**: *I assume, that You are already building Vue application with bootstrap. If not, You will need to install and configure [bootstrap-vue](https://bootstrap-vue.js.org/docs).*
+> **NOTE:** If You want to use Font Awesome icons, be sure that you have installed and configured [`vue-fontawesome`](https://github.com/FortAwesome/vue-fontawesome).
 
 ### Installation from npm registry
 You can use `npm`
@@ -85,7 +86,7 @@ export default {
       show: true,
       header: '<h3>Sidebar</h3>',
       links: [
-        { name: 'Home', href: '/' },
+        { name: 'Home', href: '/', faIcon: 'user-secret' },
         { name: 'About', href: '/about' },
         { name: 'Blog',
            children: [
@@ -105,12 +106,15 @@ export default {
 
 ## Configuration (props)
 
-Configuration options of the `BootstrapSidebar` (or components `props`) are:
+Configuration options (*props*) of the `BootstrapSidebar` are:
 
   - `show` - `true`/`false` if the sidebar initially is visible or not (default: `true`)
   - `header` - header for the sidebar. You can also use html tags like `h3`, `strong`, etc.
-  - `links` - array of menu items. Link object with `href` propery is rendered with `router-link`. Object with `children` property is rendered as dropdown. (see example how menu items are composed to single menu   item or menu item with child items).
-  - `theme` - custom `scss` theme (default: `default-theme`).  
+  - `links` - array of menu items. 
+    - `href` propery is rendered with `router-link`. 
+    - `children` property is rendered as dropdown with defined child. 
+    - `faIcon` renders Font Awesome icon, lef to the menu item. For this feature, You need to install [`vue-fontawesome`](https://github.com/FortAwesome/vue-fontawesome).
+  - `theme` - custom `scss` theme (default: `default-theme`). 
 
 ## TODOs
 - write tests
