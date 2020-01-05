@@ -16,6 +16,7 @@ npm run serve
 ```
 ## Installation & integration to Vue app
 > **NOTE**: *I assume, that You are already building Vue application with bootstrap. If not, You will need to install and configure [bootstrap-vue](https://bootstrap-vue.js.org/docs).*
+
 > **NOTE:** If You want to use Font Awesome icons, be sure that you have installed and configured [`vue-fontawesome`](https://github.com/FortAwesome/vue-fontawesome).
 
 ### Installation from npm registry
@@ -108,7 +109,7 @@ export default {
 
 Configuration options (*props*) of the `BootstrapSidebar` are:
 
-  - `show` - `true`/`false` if the sidebar initially is visible or not (default: `true`)
+  - `show` - `true`/`false` if the sidebar is initially visible or not (default: `true`)
   - `header` - header for the sidebar. You can also use html tags like `h3`, `strong`, etc.
   - `links` - array of menu items. 
     - `href` propery is rendered with `router-link`. 
