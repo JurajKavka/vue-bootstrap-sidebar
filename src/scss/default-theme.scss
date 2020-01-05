@@ -6,15 +6,15 @@
   background: $bg-color;
   color: $color;
 
-  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2), 0 1 5 0 rgba(0, 0, 0, 0.19);
 
   & .sidebar-header {
-      background-color: $bg-color;
-      color: $color;
+    background-color: $bg-color;
+    color: $color;
   }
 
   .items-wrapper {
-      background-color: $bg-color;
+    background-color: $bg-color;
   }
 
   .list-group-item {
@@ -30,9 +30,9 @@
       }
 
       &:focus {
-       outline: none !important;
-       box-shadow: none;
-       background-color: #f7f7f7;
+        outline: none !important;
+        box-shadow: none;
+        background-color: #f7f7f7;
       }
 
     }

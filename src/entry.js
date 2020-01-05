@@ -14,6 +14,7 @@ const plugin = {
 };
 
 // To auto-install when vue is found
+// eslint-disable-next-line no-redeclare
 /* global window global */
 let GlobalVue = null;
 if (typeof window !== 'undefined') {

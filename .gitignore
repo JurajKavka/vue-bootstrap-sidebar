@@ -108,3 +108,8 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
+
+# custom
+lint.sh
+lint-scss.sh
+

@@ -6,7 +6,7 @@ import BootstrapSidebar from '@/vue-bootstrap-sidebar.vue'
 Vue.use(BootstrapVue)
 
 export default Vue.extend({
-  name: 'app',
+  name: 'App',
   components: {
     BootstrapSidebar
   },
@@ -41,16 +41,21 @@ export default Vue.extend({
 </script>
 
 <template>
-  <div id="app">
+  <div id="App">
     <BootstrapSidebar 
-      v-bind:show="true" 
-      v-bind:links="links"
-      v-bind:header="header"
-      v-on:sidebarChanged="onSidebarChanged"
+      :show="true" 
+      :links="links"
+      :header="header"
+      @sidebarChanged="onSidebarChanged"
     >
-
       <template v-slot:navbar>
-        <b-navbar id="mainNavbar" toggleable="lg" type="light" variant="light" fixed="top">
+        <b-navbar 
+          id="mainNavbar" 
+          toggleable="lg" 
+          type="light" 
+          variant="light" 
+          fixed="top"
+        >
           <b-navbar-nav>
             <b-nav-item>
               Navbar
@@ -60,20 +65,21 @@ export default Vue.extend({
       </template>
       
       <template v-slot:content>
-      <b-container style="margin-top: 56px">
-        <b-row>
-          <b-col>
-            <h1>What is Lorem Ipsum?</h1>
-            <p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy 
-            text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in 
-            the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including 
-            versions of Lorem Ipsum.</p>
-          </b-col>
-        </b-row>
-      </b-container>
+        <b-container style="margin-top: 56px">
+          <b-row>
+            <b-col>
+              <h1>What is Lorem Ipsum?</h1>
+              <p>
+                <strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy 
+                text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in 
+                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including 
+                versions of Lorem Ipsum.
+              </p>
+            </b-col>
+          </b-row>
+        </b-container>
       </template>
-
     </BootstrapSidebar>
   </div>
 </template>
