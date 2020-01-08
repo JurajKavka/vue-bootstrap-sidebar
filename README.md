@@ -8,6 +8,9 @@ For the preview just clone this repository and run *dev* server.
 git clone https://github.com/JurajKavka/vue-bootstrap-sidebar.git
 ```
 ```
+cd vue-bootstrap-sidebar
+```
+```
 npm install
 ```
 ```
