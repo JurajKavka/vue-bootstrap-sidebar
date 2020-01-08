@@ -29,10 +29,10 @@
         background-color: #f7f7f7;
       }
 
-      &:focus {
+      &:focus, &:active {
         outline: none !important;
-        box-shadow: none;
-        background-color: #f7f7f7;
+        box-shadow: none !important;
+        background-color: $bg-color;
       }
 
     }
@@ -44,6 +44,8 @@
     border: none;
     border-radius: 0;
     opacity: 1;
+    box-shadow: none;
+    margin-left: 10px;
 
     &:hover, &:focus, &:active, &:visited {
       color: $color;

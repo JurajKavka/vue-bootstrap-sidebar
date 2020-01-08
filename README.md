@@ -1,10 +1,9 @@
 # vue-bootstrap-sidebar
 
-`vue-bootstrap-sidebar` is a Vue sidebar menu component build using [`bootstrap-vue`](https://bootstrap-vue.js.org/). 
-> **Note:** *This is very first version. It will need more effort to have it ready for production (tests, lint, etc.). You can find very nice and more mature alternative [here](https://github.com/yaminncco/vue-sidebar-menu).*
+`vue-bootstrap-sidebar` is a Vue sidebar menu component, build using [`bootstrap-vue`](https://bootstrap-vue.js.org/).
 
 ## Preview
-For the preview just clone this repository and run "dev" server.
+For the preview just clone this repository and run *dev* server.
 ```
 git clone https://github.com/JurajKavka/vue-bootstrap-sidebar.git
 ```
@@ -32,11 +31,11 @@ yarn add vue-bootstrap-sidebar
 ### Integration to  the project
 
 `BootstrapSidebar` component is a wrapper for a whole page with two named *slots*:
- 
+
   - `navbar` - slot for your top *navbar* component
   - `content` - slot for the entire *content* of your page
-  
-It is up to You, how Your top *navbar* component and *content* looks like. As we are using bootstrap, it is good if a whole webpage follows bootstrap patterns. 
+
+It is up to You, how Your top *navbar* component and *content* looks like. As we are using *bootstrap*, it is good if a whole webpage follows *bootstrap* patterns.
 
 Except that, styles needs to be imported.
 
@@ -49,73 +48,95 @@ Except that, styles needs to be imported.
 So, Your main `app` component should look like on this example:
 
 ```html
-<template>
-  <div id="app">
-    <BootstrapSidebar
-      :initialShow="show"
-      :links="links"
-      :header="'<h3>Sidebar</h3>'"
-    >
-    <template v-slot:navbar>
-      <b-navbar id="mainNavbar" toggleable="lg" type="light" variant="light" fixed="top">
-        <b-navbar-nav>
-          <b-nav-item>
-            Navbar Item 1
-          </b-nav-item>
-        </b-navbar-nav>
-      </b-navbar>
-    </template>
-    <template v-slot:content>
-     <b-container>
-       <router-view></router-view>
-     </b-container>
-    </template>
-    </BootstrapSidebar>
-  </div>
-</template>
-
 <script>
-import BootstrapSidebar from 'vue-bootstrap-sidebar'
+import Vue from 'vue'
+import BootstrapSidebar from '@/vue-bootstrap-sidebar.vue'
 
-export default {
-  name: 'app',
+export default Vue.extend({
+  name: 'App',
   components: {
     BootstrapSidebar
   },
   data () {
     return {
-      show: true,
+      initialShow: true,
       header: '<h3>Sidebar</h3>',
       links: [
-        { name: 'Home', href: '/', faIcon: 'user-secret' },
-        { name: 'About', href: '/about' },
-        { name: 'Blog',
-           children: [
-            { name: 'Entries', href: '/entries' }
+        { name: 'Home', href: { name: 'home' }, faIcon: ['fas', 'home'] },
+        { name: 'Dropdown',
+          faIcon: ['fas', 'tint'],
+          children: [
+            { name: 'Child Item 1', href: { name: 'child-item-1' }, 
+              faIcon: ['fas', 'child'] },
+            { name: 'Child Item 2', href: { name: 'child-item-2' }, 
+              faIcon: ['fas', 'child'] }
           ]
-        }
+        },
+        { name: 'About', href: { name: 'about' }, faIcon: 'users' },
+        { name: 'Contact', href: { name: 'contact' }, faIcon: 'phone' },
       ]
     }
+  },
+  methods: {
+    onSidebarChanged () {
+    }
   }
-}
+});
 </script>
 
+<template>
+  <div id="App">
+    <BootstrapSidebar 
+      :initial-show="initialShow" 
+      :links="links"
+      :header="header"
+      :fa="true"
+      @sidebarChanged="onSidebarChanged"
+    >
+      <template v-slot:navbar>
+        <b-navbar 
+          id="mainNavbar" 
+          toggleable="lg" 
+          type="light" 
+          variant="light" 
+          fixed="top"
+        >
+          <b-navbar-nav>
+            <b-nav-item>
+              Navbar
+            </b-nav-item>
+          </b-navbar-nav>
+        </b-navbar>
+      </template>
+      
+      <template v-slot:content>
+        <b-container style="margin-top: 56px">
+          <router-view />
+        </b-container>
+      </template>
+    </BootstrapSidebar>
+  </div>
+</template>
+
 <style lang="scss">
-@import 'node_modules/vue-bootstrap-sidebar/src/scss/default-theme.scss';
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';
+@import './scss/default-theme';
 </style>
+
 ```
 
 ## Configuration (props)
 
 Configuration options (*props*) of the `BootstrapSidebar` are:
 
-  - `show` - `true`/`false` if the sidebar is initially visible or not (default: `true`)
+  - `initialShow` - `true`/`false` if the sidebar is initially visible or not (default: `true`)
   - `header` - header for the sidebar. You can also use html tags like `h3`, `strong`, etc.
-  - `links` - array of menu items. 
-    - `href` propery is rendered with `router-link`. 
-    - `children` property is rendered as dropdown with defined child. 
-    - `faIcon` renders Font Awesome icon, lef to the menu item. For this feature, You need to install [`vue-fontawesome`](https://github.com/FortAwesome/vue-fontawesome).
-  - `theme` - custom `scss` theme (default: `default-theme`). 
+  - `links` - array of menu items.
+    - `href` propery is rendered with `router-link`.
+    - `children` property is rendered as dropdown with defined child.
+    - `faIcon` renders Font Awesome icon, lef to the menu item. For this feature, You need to install [`vue-fontawesome`](https://github.com/FortAwesome/vue-fontawesome). You can provide icon as array e.g. `['fas', 'user']` or as string e.g.`'user'`.
+  - `theme` - custom `scss` theme (default: `default-theme`).
 
 ## TODOs
 - write tests

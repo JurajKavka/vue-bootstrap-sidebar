@@ -1,9 +1,6 @@
 <script>
 import Vue from 'vue'
-import BootstrapVue from 'bootstrap-vue'
 import BootstrapSidebar from '@/vue-bootstrap-sidebar.vue'
-
-Vue.use(BootstrapVue)
 
 export default Vue.extend({
   name: 'App',
@@ -12,24 +9,21 @@ export default Vue.extend({
   },
   data () {
     return {
-      show: false,
+      initialShow: true,
       header: '<h3>Sidebar</h3>',
       links: [
-        { name: 'Link 1', faIcon: 'user-secret',
+        { name: 'Home', href: { name: 'home' }, faIcon: ['fas', 'home'] },
+        { name: 'Dropdown',
+          faIcon: ['fas', 'tint'],
           children: [
-            { name: 'Link Child 1', href: '#' },
-            { name: 'Link Child 2', href: '#' }
+            { name: 'Child Item 1', href: { name: 'child-item-1' }, 
+              faIcon: ['fas', 'child'] },
+            { name: 'Child Item 2', href: { name: 'child-item-2' }, 
+              faIcon: ['fas', 'child'] }
           ]
         },
-        { name: 'Home', href: '#', faIcon: ['fas', 'user-secret'] },
-        { name: 'About', href: '#', faIcon: 'user-secret' },
-        { name: 'Link 2',
-          children: [
-            { name: 'Link Child 1', href: '#' },
-            { name: 'Link Child 2', href: '#' }
-          ]
-        },
-        { name: 'About 2', href: '#' },
+        { name: 'About', href: { name: 'about' }, faIcon: 'users' },
+        { name: 'Contact', href: { name: 'contact' }, faIcon: 'phone' },
       ]
     }
   },
@@ -43,7 +37,7 @@ export default Vue.extend({
 <template>
   <div id="App">
     <BootstrapSidebar 
-      :show="true" 
+      :initial-show="initialShow" 
       :links="links"
       :header="header"
       :fa="true"
@@ -67,18 +61,7 @@ export default Vue.extend({
       
       <template v-slot:content>
         <b-container style="margin-top: 56px">
-          <b-row>
-            <b-col>
-              <h1>What is Lorem Ipsum?</h1>
-              <p>
-                <strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy 
-                text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in 
-                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including 
-                versions of Lorem Ipsum.
-              </p>
-            </b-col>
-          </b-row>
+          <router-view />
         </b-container>
       </template>
     </BootstrapSidebar>

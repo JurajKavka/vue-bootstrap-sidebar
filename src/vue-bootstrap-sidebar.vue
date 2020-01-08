@@ -21,13 +21,18 @@
                 :to="link.href"
                 variant="info"
                 class="btn sidebar-menu-item"
+                :squared="true"
               >
-                <component 
-                  v-if="link.faIcon" 
-                  :is="'font-awesome-icon'" 
-                  :icon="link.faIcon"
-                />
-                {{ link.name }}
+                <div class="fa-icon">
+                  <component 
+                    v-if="link.faIcon" 
+                    :is="'font-awesome-icon'" 
+                    :icon="link.faIcon"
+                  />
+                </div>
+                <div class="link-name">
+                  {{ link.name }}
+                </div>
               </b-button>
             </b-list-group-item>
           </template>
@@ -42,12 +47,16 @@
                 variant="info"
                 class="sidebar-menu-item dropdown-toggle"
               >
-                <component 
-                  v-if="link.faIcon" 
-                  :is="'font-awesome-icon'" 
-                  :icon="link.faIcon"
-                />
-                {{ link.name }}
+                <div class="fa-icon">
+                  <component 
+                    v-if="link.faIcon" 
+                    :is="'font-awesome-icon'" 
+                    :icon="link.faIcon"
+                  />
+                </div>
+                <div class="link-name">
+                  {{ link.name }}
+                </div>
               </b-button>
             </b-list-group-item>
             <b-collapse
@@ -67,12 +76,16 @@
                     class="sidebar-menu-item child-level-1"
                     :to="child.href"
                   >
-                    <component 
-                      v-if="child.faIcon" 
-                      :is="'font-awesome-icon'" 
-                      :icon="link.faIcon"
-                    />
-                    {{ child.name }}
+                    <div class="fa-icon">
+                      <component 
+                        v-if="child.faIcon" 
+                        :is="'font-awesome-icon'" 
+                        :icon="child.faIcon"
+                      />
+                    </div>
+                    <div class="link-name">
+                      {{ child.name }}
+                    </div>
                   </b-button>
                 </b-list-group-item>
               </b-list-group>
@@ -80,14 +93,13 @@
           </template>
         </template>
       </b-list-group> <!--/ .items-wrapper -->
-      <b-button
+      <HamburgerButton
         id="sidebarButton"
         class="sidebar-button"
+        :is-hamburger="!initialShow"
         :class="[ show ? 'visible' : 'hidden' ]"
         @click="onButtonClick"
-      >
-        X
-      </b-button>
+      />
     </nav>
     <div
       id="navbar"
@@ -105,8 +117,13 @@
   </div>
 </template>
 <script>
+import HamburgerButton from '@jurajkavka/vue-hamburger-button'
+
 export default {
   name: 'BootstrapSidebar',
+  components: {
+    HamburgerButton
+  },
   props: {
     links: {
       type: Array,
@@ -140,4 +157,5 @@ export default {
 }
 </script>
 <style lang="scss">
+@import '@jurajkavka/vue-hamburger-button/src/scss/default-theme.scss';
 </style>
