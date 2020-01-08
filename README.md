@@ -1,4 +1,4 @@
-# vue-bootstrap-sidebar
+# :bookmark_tabs: vue-bootstrap-sidebar :bookmark_tabs:
 
 `vue-bootstrap-sidebar` is a Vue sidebar menu component, build using [`bootstrap-vue`](https://bootstrap-vue.js.org/).
 
