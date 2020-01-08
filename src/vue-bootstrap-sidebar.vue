@@ -157,5 +157,5 @@ export default {
 }
 </script>
 <style lang="scss">
-@import '@jurajkavka/vue-hamburger-button/src/scss/default-theme.scss';
+@import 'node_modules/@jurajkavka/vue-hamburger-button/src/scss/default-theme.scss';
 </style>
