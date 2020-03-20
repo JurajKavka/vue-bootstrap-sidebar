@@ -1,6 +1,6 @@
 {
   "name": "vue-bootstrap-sidebar",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Simple sidebar component for Vue applications build using bootstrap-vue",
   "author": "Juraj Kavka <jurajkavka@gmail.com>",
   "license": "MIT",
