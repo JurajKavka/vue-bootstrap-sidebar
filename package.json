@@ -40,7 +40,8 @@
     "test": "echo \"No test specified\"",
     "lint:script": "eslint --ext .vue,.js src/",
     "lint:style": "stylelint \"src/**/*.scss\"",
-    "lint": "npm run lint:script; npm run lint:style"
+    "lint": "npm run lint:script; npm run lint:style",
+    "release": "np"
   },
   "dependencies": {
     "@jurajkavka/vue-hamburger-button": "^1.0.6"
@@ -64,6 +65,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "minimist": "^1.2.5",
     "node-sass": "^4.14.1",
+    "np": "^6.2.4",
     "rollup": "^1.32.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
