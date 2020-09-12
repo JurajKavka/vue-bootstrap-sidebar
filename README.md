@@ -2,6 +2,8 @@
 
 `vue-bootstrap-sidebar` is a Vue sidebar menu component, build using [`bootstrap-vue`](https://bootstrap-vue.js.org/).
 
+> Be sure to check out the [Sidebar component in BootstrapVue](https://bootstrap-vue.org/docs/components/sidebar) firtst. My implementation is older, much simpler, but still in active development.
+
 ## Preview
 For the preview just clone this repository and run *dev* server.
 ```
