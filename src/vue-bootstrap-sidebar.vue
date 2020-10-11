@@ -41,7 +41,7 @@
               :key="index"
             >
               <b-button
-                v-b-toggle="`accordion-${link.name}`"
+                v-b-toggle="`accordion-${index + 10}`"
                 block
                 href="#"
                 variant="info"
@@ -60,7 +60,7 @@
               </b-button>
             </b-list-group-item>
             <b-collapse
-              :id="`accordion-${link.name}`"
+              :id="`accordion-${index + 10}`"
               :key="index + 10"
               accordion="my-accordion"
               role="tabpanel"
